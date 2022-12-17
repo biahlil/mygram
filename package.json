@@ -1,0 +1,53 @@
+{
+  "name": "mygram",
+  "version": "1.0.0",
+  "description": "social media API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start-dev": "nodemon app.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo:all",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000 -i --reporters default jest-stare",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset"
+  },
+  "author": "biahlilakbar1",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.8.0",
+    "sequelize": "^6.27.0",
+    "sequelize-cli": "^6.5.2"
+  },
+  "devDependencies": {
+    "@jest/test-sequencer": "^29.3.1",
+    "cross-env": "^7.0.3",
+    "jest": "^29.3.1",
+    "jest-serial-runner": "^1.2.1",
+    "jest-stare": "^2.4.1",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
+  },
+  "jest": {
+    "verbose": true,
+    "testSequencer": "./__test__/testSequencer.js",
+    "coverageDirectory": "./__test__/tester",
+    "coverageReporters": ["html","text"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      ".gitignore"
+    ]
+  }
+}
