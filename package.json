@@ -14,6 +14,7 @@
   },
   "author": "biahlilakbar1",
   "dependencies": {
+    "babel": "^6.23.0",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -35,7 +36,10 @@
     "verbose": true,
     "testSequencer": "./__test__/testSequencer.js",
     "coverageDirectory": "./__test__/tester",
-    "coverageReporters": ["html","text"],
+    "coverageReporters": [
+      "html",
+      "text"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 100,
